@@ -1,15 +1,17 @@
 import { connect } from 'react-redux';
-import Navigation from './components/Auth';
+import Auth from './components/Auth';
 
 const mapStateToProps = state => ({
-    routes: [{ key: 'home', path: 'home', text: 'Home' }, { key: 'vacations', path: 'vacations', text: 'Vacations' }]
+    auth: selectUser(state),
 });
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = ({
+    getAuth
+});
 
-const AuthContainer = connect(
+constAuthContainer = connect(
     mapStateToProps,
     mapDispatchToProps,
-)(Navigation);
+)(Auth);
 
 export default AuthContainer;

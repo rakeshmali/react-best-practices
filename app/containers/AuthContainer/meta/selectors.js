@@ -4,4 +4,4 @@ import { initialState } from './reducer';
  * @param state
  * @returns {Object}
  */
-export const get = state => state.Auth || initialState;
+const select = state => state.profile || initialState;

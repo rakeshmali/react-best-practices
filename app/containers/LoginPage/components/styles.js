@@ -1,4 +1,4 @@
-import {makeStyles} from "@mui/material/styles";
+import {makeStyles} from "@mui/styles";
 
 const imageWidth = '220px';
 const minFormControlWidth = '40vh';

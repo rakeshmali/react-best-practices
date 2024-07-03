@@ -15,8 +15,6 @@ const LoginPage = ({ dispatchPasswordChange, dispatchUsernameChange, dispatchAut
 
     const classes = useStyles();
 
-    console.log("classes are",classes);
-
     return (
         <PageWrapper height="100vh" textAlign="center" width="100%">
             <LoginLayout>
@@ -29,7 +27,7 @@ const LoginPage = ({ dispatchPasswordChange, dispatchUsernameChange, dispatchAut
                             <img
                                 alt="logo"
                                 className={classes.logoLogin}
-                                src={require('../../../assets/logo.png')}
+                                src={'../../../assets/logo.png'}
                             />
                         </div>
                         <LoginForm

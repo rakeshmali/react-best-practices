@@ -8,7 +8,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { TextField, FormHelperText, FormControl } from '@mui/material';
-import { withStyles } from '@mui/styles/makeStyles';
+import { withStyles } from '@mui/styles';
 
 const inputLeftRightMargin = '13px';
 
