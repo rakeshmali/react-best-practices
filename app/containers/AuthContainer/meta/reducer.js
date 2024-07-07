@@ -1,22 +1,34 @@
 import produce from 'immer';
 import * as constants from './constants';
+import { getDataFromStorage } from '@/app/utils/cookies';
+
+const {token, user} = getDataFromStorage();
+
+const getUser = userString => userString && JSON.parse(userString);
 
 export const initialState = {
+    token,
+    user: getUser(user),
+    isAuthenticated: !!token,
 };
 
 /* eslint-disable no-param-reassign */
-const AuthReducer = (state = initialState, action) =>
+const Auth = (state = initialState, action) =>
     produce(state, draft => {
         switch (action.type) {
             case constants.GET_AUTH_SUCCESS:
+                draft.token = action.payload.token;
                 draft.user = action.payload.user;
-                draft.orders = action.payload.orders;
+                draft.isAuthenticated = true;
                 break;
-            case constants.GET_AUTH_ERROR:
+            case constants.LOGOUT:
+                delete draft.token;
+                delete draft.user;
+                draft.isAuthenticated = false;
                 break;
             default:
                 break;
         }
     });
 
-export default AuthReducer;
+export default Auth;

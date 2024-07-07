@@ -22,7 +22,7 @@ const icons = {
     'vacations': <Villa />,
 };
 
-function Navigation({ routes }) {
+function Navigation({ routes, user, logout }) {
     const classes = useStyles();
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
@@ -66,9 +66,12 @@ function Navigation({ routes }) {
                     >
                         <Menu />
                     </IconButton>
-                    <Typography variant="h6" noWrap>
+                    <Typography variant="h6" noWrap className={classes.title}>
                         Vacations
                     </Typography>
+                    {user && <Typography variant="h6" noWrap>{user.username}</Typography>}
+                    {user && <Button onClick={logout} color="inherit">Sign Out</Button>}
+
                 </Toolbar>
             </AppBar>
             <Drawer

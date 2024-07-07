@@ -19,7 +19,10 @@ function mapDispatchToProps(dispatch) {
   return {
     dispatchUsernameChange: (value) => dispatch(loginFieldChange('username', value)),
     dispatchPasswordChange: (value) => dispatch(loginFieldChange('password', value)),
-    dispatchAuthenticate: () => dispatch(getAuth()),
+    dispatchAuthenticate: () => {
+      console.log('dispatchAuthenticate');
+      dispatch(getAuth())
+    }
   };
 }
 

@@ -21,6 +21,7 @@
     "@mui/material": "^5.15.20",
     "@mui/styled-engine-sc": "6.0.0-alpha.18",
     "@mui/styles": "^5.15.21",
+    "@reduxjs/toolkit": "^2.2.6",
     "axios": "^1.7.2",
     "fs-extra": "^11.2.0",
     "inquirer": "^9.3.2",

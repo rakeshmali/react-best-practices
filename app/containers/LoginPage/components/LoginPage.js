@@ -6,6 +6,7 @@ import PageWrapper from "../../../components/Common/PageWrapper";
 import LoginLayout from "../../../components/Login/LoginLayout";
 import LoginForm from "../../../components/Login/LoginForm";
 import useStyles from "./styles";
+import { Box } from '@mui/material';
 
 const LoginPage = ({ dispatchPasswordChange, dispatchUsernameChange, dispatchAuthenticate }) => {
 
@@ -24,9 +25,10 @@ const LoginPage = ({ dispatchPasswordChange, dispatchUsernameChange, dispatchAut
                 >
                     <CardContent classes={{ root: classes.cardContentRoot }}>
                         <div className={classes.logoLoginRoot}>
-                            <img
+                            <Box
+                                component={'img'}
+                                sx={{width: '115px'}}
                                 alt="logo"
-                                className={classes.logoLogin}
                                 src={'../../../assets/logo.png'}
                             />
                         </div>

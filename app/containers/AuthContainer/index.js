@@ -1,15 +1,14 @@
 import { connect } from 'react-redux';
 import Auth from './components/Auth';
+import { getAuth } from './meta/actions';
 
-const mapStateToProps = state => ({
-    auth: selectUser(state),
-});
+const mapStateToProps = state => ({});
 
 const mapDispatchToProps = ({
     getAuth
 });
 
-constAuthContainer = connect(
+const AuthContainer = connect(
     mapStateToProps,
     mapDispatchToProps,
 )(Auth);
