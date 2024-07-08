@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
-import {makeStyles} from "@mui/material/styles";
+import {makeStyles} from "@mui/styles";
 import Vacation from "./Vacation";
 
 const useStyles = makeStyles({
@@ -23,7 +23,11 @@ function Vacations({ getVacations, vacations }) {
     }, []);
 
     useEffect(() => {
-        const vacationsElements = vacations.map(vacation => (
+        if (!vacations || vacations.length === 0) {
+            return;
+        }
+        console.log('vacations are', vacations);
+        const vacationsElements = vacations?.vacations?.map(vacation => (
             <Vacation vacation={vacation} />)
         );
         setItems(vacationsElements)

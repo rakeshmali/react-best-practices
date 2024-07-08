@@ -3,17 +3,17 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import HomePage from "@/app/hooks/HomePage";
-import { Box } from '@mui/material';
+import { Box, ThemeProvider } from '@mui/material';
 import LoginPage from "@/app/containers/LoginPage";
 import { getAuth } from '@/app/containers/AuthContainer/meta/selectors';
 import NavigationContainer from '@/app/containers/NavigationContainer';
-function App({auth}) {
+import { selectTheme } from '@/app/containers/App/meta/selectors';
+function App({ auth, theme }) {
   return (
-    <>
-    {!auth.isAuthenticated && (<LoginPage />)}
-    {auth.isAuthenticated && (<NavigationContainer />)}
-    </>
-  );
+    <ThemeProvider theme={theme}>
+        {!auth.isAuthenticated && <LoginPage />}
+        {auth.isAuthenticated && <NavigationContainer />}
+      </ThemeProvider>);
 }
 
 App.propTypes = {
@@ -21,11 +21,11 @@ App.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  auth: getAuth(state)
+  auth: getAuth(state),
+  theme: selectTheme(state),
 });
 
 const withConnect = connect(mapStateToProps);
-
 
 export default compose(
   withConnect,

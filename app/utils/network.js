@@ -25,7 +25,6 @@ function networkService() {
 
     function* getData(action, params) {
         const url = baseUrl + action;
-        debugger;
         const config = { headers, params };
         return yield axios.get(url, config);
     }

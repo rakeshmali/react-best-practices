@@ -12,8 +12,10 @@ function* handleGetAuth() {
         const request = { username: loginPage.username, password: loginPage.password };
         const action = getEndpointURL('AUTHENTICATE');
         const response = yield call(network.postData, action, request);
-        yield call(saveDataToStorage, response.token, response.user);
+        yield call(saveDataToStorage, response);
+        network.setCredentials(response.token);
         yield put(actions.getAuthSuccess(response))
+
     } catch(error) {
         yield put(actions.getAuthError(error))
     }

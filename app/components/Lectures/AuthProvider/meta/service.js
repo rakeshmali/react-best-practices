@@ -15,18 +15,15 @@ export function* authenticateServer(username, password) {
       username,
       password,
     });
-    debugger;
     const rawResponse = yield call(
       postData,
       endpointUrl,
       mappedRequest,
     );
-    debugger;
     const response = rawResponse;
     if (response && response.token) {
       const tokenData = encodeJwtToken(response.token);
       const userData = response.user;
-      debugger;
       yield put(
         actions.authenticateSuccess(userData, {
           ...tokenData,
@@ -34,7 +31,6 @@ export function* authenticateServer(username, password) {
         }),
 
       );
-      debugger;
       yield call(saveDataToStorage, {
         token: tokenData.token,
         user: {

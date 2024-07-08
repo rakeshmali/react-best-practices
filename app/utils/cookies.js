@@ -7,7 +7,7 @@ import Cookies from 'js-cookie';
  */
 
 
-const domain = window.location.hostname;
+const domain = window?.location?.hostname;
 
 const path = '';
 
