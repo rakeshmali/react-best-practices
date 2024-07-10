@@ -26,7 +26,7 @@ export const getTheme = (mode = 'dark', fontFamily = localeData.en.fontFamily) =
             MuiButton: {
                 styleOverrides: {
                     contained: {
-                        borderRadius: "30px",
+                        borderRadius: "2px",
                         backgroundColor: blue[500],
                     },
                 },
@@ -34,7 +34,7 @@ export const getTheme = (mode = 'dark', fontFamily = localeData.en.fontFamily) =
             MuiPaper: {
                 styleOverrides: {
                     root: {
-                        borderRadius: "30px",
+                        borderRadius: "2px",
                     },
                 },
             },

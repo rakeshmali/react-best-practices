@@ -14,3 +14,12 @@ export const getVacationsError = payload => ({
     type: constants.GET_VACATIONS_ERROR,
     payload,
 });
+
+export const updateShowDiscounts = () => ({
+    type: constants.UPDATE_SHOW_DISCOUNTS,
+});
+
+export const updateSelectedVacation = vacationId => ({
+    type: constants.ACTIVE_VACATION_ID,
+    payload: vacationId,
+});

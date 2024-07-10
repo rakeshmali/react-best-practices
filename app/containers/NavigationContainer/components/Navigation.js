@@ -31,11 +31,9 @@ function Navigation({ routes, user, logout, mode, updateThemeMode }) {
     const [items, setItems] = React.useState([]);
     const [selectedKey, setSelectedKey] = React.useState(routes[0].key);
 
-    console.log('mode', mode);
-
     useEffect(() => {
-        const drawerItems = routes.map(route => (
-            <NavItem onClick={() => setSelectedKey(route.key)}
+        const drawerItems = routes.map((route, index) => (
+            <NavItem key={index} onClick={() => setSelectedKey(route.key)}
                      selectedKey={selectedKey}
                      icon={icons[route.key]}
                      item={route} />)

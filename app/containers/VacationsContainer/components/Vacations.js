@@ -2,6 +2,8 @@ import React, {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {makeStyles} from "@mui/styles";
 import Vacation from "./Vacation";
+import Discounts from "./Discounts";
+import VacationsItems from "./VacationsItems";
 
 const useStyles = makeStyles({
     vacationsRoot: {
@@ -12,37 +14,31 @@ const useStyles = makeStyles({
     },
 });
 
-function Vacations({ getVacations, vacations }) {
-
-    const [items, setItems] = React.useState([]);
-
+function Vacations({ getVacations, updateShowDiscounts, vacations, discounts, showDiscounts, activeVacationId, updateSelectedVacation }) {
     useEffect(() => {
         if (getVacations) {
             getVacations()
         }
     }, []);
 
-    useEffect(() => {
-        if (!vacations || vacations.length === 0) {
-            return;
-        }
-        console.log('vacations are', vacations);
-        const vacationsElements = vacations?.vacations?.map(vacation => (
-            <Vacation vacation={vacation} />)
-        );
-        setItems(vacationsElements)
-    }, [vacations]);
-
     const classes = useStyles();
 
-    return <div className={classes.vacationsRoot}>
-        {items}
-    </div>;
+    return (
+        <>
+            <Discounts updateShowDiscounts={updateShowDiscounts} discounts={discounts} showDiscounts={showDiscounts} />
+            <div className={classes.vacationsRoot}>
+                <VacationsItems vacations={vacations} updateSelectedVacation={updateSelectedVacation}/>
+            </div>
+        </>
+    );
 }
 
 Vacations.propTypes = {
     getVacations: PropTypes.func,
     vacations: PropTypes.array,
+    discounts: PropTypes.array,
+    showDiscounts: PropTypes.bool,
+    updateShowDiscounts: PropTypes.func,
 };
 
 export default Vacations;

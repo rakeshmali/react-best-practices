@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import Vacation from "./Vacation";
 
-const VacationsItems = ({ vacations }) => {
+const VacationsItems = ({ vacations, updateSelectedVacation }) => {
     return (
-        vacations.vacations.map(vacation => (
-                <Vacation vacation={vacation} />))
+        vacations?.map((vacation,index) => (
+                <Vacation key={index} vacation={vacation} updateSelectedVacation={updateSelectedVacation}/>))
     );
 };
 
@@ -13,4 +13,4 @@ VacationsItems.propTypes = {
     vacations: PropTypes.array,
 };
 
-export default VacationsItems;
+export default memo(VacationsItems);

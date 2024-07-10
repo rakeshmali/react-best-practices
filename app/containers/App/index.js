@@ -10,14 +10,15 @@ import NavigationContainer from '@/app/containers/NavigationContainer';
 import { selectTheme } from '@/app/containers/App/meta/selectors';
 function App({ auth, theme }) {
   return (
-    <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
         {!auth.isAuthenticated && <LoginPage />}
         {auth.isAuthenticated && <NavigationContainer />}
       </ThemeProvider>);
 }
 
 App.propTypes = {
-  auth: PropTypes.object,
+  auth: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({

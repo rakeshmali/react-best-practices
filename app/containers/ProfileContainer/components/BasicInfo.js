@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Typography from "@mui/material/Typography";
-import { makeStyles } from '@mui/material/styles';
+import { makeStyles } from '@mui/styles';
 import Avatar from "@mui/material/Avatar";
 import Paper from "@mui/material/Paper";
 

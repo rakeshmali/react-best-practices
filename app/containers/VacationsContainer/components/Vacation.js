@@ -18,12 +18,11 @@ const useStyles = makeStyles({
     },
 });
 
-export function Vacation({ vacation }) {
-
+export function Vacation({ vacation, updateSelectedVacation }) {
     const classes = useStyles();
 
     return (
-        <Card className={classes.root}>
+        <Card onClick={() => updateSelectedVacation(vacation.id)} className={classes.root}>
             <CardActionArea>
                 <CardMedia
                     component="img"

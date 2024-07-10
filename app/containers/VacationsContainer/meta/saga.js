@@ -14,7 +14,7 @@ function* handleGetVacations() {
     }
 }
 
-export default function* saga() {
+export default function*() {
     yield all([
         yield takeLatest(constants.GET_VACATIONS, handleGetVacations),
     ]);
